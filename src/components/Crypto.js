@@ -77,6 +77,8 @@ function Crypto({ activeTab, currentAccount, dispatch, message }) {
     retrieveCryptoPrices();
   }, []);
 
+  if (!currentAccount) return;
+
   if (!cryptoPrices)
     return (
       <Message message={message} dispatch={dispatch}>

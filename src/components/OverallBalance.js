@@ -32,25 +32,29 @@ function numberFormatBasedOnCurrency(
 }
 
 function OverallBalance({ currentAccount }) {
+  if (!currentAccount) return;
+
+  const formattedOverallBalance = numberFormatBasedOnCurrency(
+    currentAccount?.overallBalance,
+    currentAccount?.currency
+  );
+
+  const formattedDate = formatDateBasedOnCurrency(currentAccount, new Date(), {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
   return (
     <div className="overall_balance_div">
       <p className="overall_balance_text">
         <em>account balance</em>
       </p>
-      <span className="overall_balance">
-        {numberFormatBasedOnCurrency(
-          currentAccount.overallBalance,
-          currentAccount.currency
-        )}
-      </span>
+      <span className="overall_balance">{formattedOverallBalance}</span>
       <p className="overall_acc_balance_descr">
         <em className="current_date_time_overall">
           {"on "}
-          {formatDateBasedOnCurrency(currentAccount, new Date(), {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
+          {formattedDate}
         </em>
       </p>
     </div>
