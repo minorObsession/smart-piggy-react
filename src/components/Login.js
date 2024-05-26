@@ -9,7 +9,7 @@ function Login({ dispatch, isOpenWC, status }) {
 
     dispatch({ type: "login", payload: { loginUsername, loginPassword } });
   }
-  console.log(isOpenWC);
+
   return (
     <div className={`container welcome_container ${isOpenWC ? "" : "hidden"}`}>
       <h1>
