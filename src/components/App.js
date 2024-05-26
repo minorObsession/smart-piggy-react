@@ -287,12 +287,12 @@ function App() {
   // ? for syncing currentAccount with local storage (thru setAccounts)
   useEffect(() => {
     syncWithLocalStorage(currentAccount, setAccounts);
-  }, [currentAccount, setAccounts, accounts]);
+  }, [currentAccount, setAccounts]);
 
   // ? for syncing receiverAccount with local storage (thru setAccounts)
   useEffect(() => {
     syncWithLocalStorage(receiverAccount, setAccounts);
-  }, [receiverAccount, setAccounts, accounts]);
+  }, [receiverAccount, setAccounts]);
 
   return (
     <>
