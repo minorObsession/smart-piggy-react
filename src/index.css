@@ -600,10 +600,6 @@ input::placeholder {
   /* align-items: center; */
 }
 
-.form_login input {
-  /* height: var(--base-plus-3-font-size); */
-}
-
 .signup_box {
   align-self: start;
 }
@@ -771,9 +767,6 @@ transaction_amount */
   /* font-weight: 500; */
   /* width: 33%; */
   /* width: 33%; */
-}
-
-.icon_deposit {
 }
 
 .transaction_date {
