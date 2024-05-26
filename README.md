@@ -3,7 +3,7 @@
 Simple and fun banking and cryptocurrency investing app
 
 ## Hosted on Netlify 
-https://master--smartpiggy.netlify.app
+https://smartpiggy.netlify.app
 
 ## Features
 
