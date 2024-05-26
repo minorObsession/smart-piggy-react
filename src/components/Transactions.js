@@ -40,7 +40,7 @@ function formatDatesArrayToDisplay(datesArray, currency) {
   return toDisplay;
 }
 
-function Transactions({ currentAccount }) {
+function Transactions({ currentAccount, activeTab }) {
   if (!currentAccount) return;
   const datesToDisplay = formatDatesArrayToDisplay(
     currentAccount.transactionDates,
@@ -48,20 +48,24 @@ function Transactions({ currentAccount }) {
   );
 
   return (
-    <ul>
-      {currentAccount.transactions.map((mov, i) => {
-        const formattedDate = datesToDisplay[i];
+    <div
+      className={`transactions_div ${activeTab === "banking" ? "" : "hidden"} `}
+    >
+      <ul>
+        {currentAccount.transactions.map((mov, i) => {
+          const formattedDate = datesToDisplay[i];
 
-        return (
-          <Transaction
-            currentAccount={currentAccount}
-            mov={mov}
-            formattedDate={formattedDate}
-            key={mov + i + Math.random()}
-          />
-        );
-      })}
-    </ul>
+          return (
+            <Transaction
+              currentAccount={currentAccount}
+              mov={mov}
+              formattedDate={formattedDate}
+              key={mov + i + Math.random()}
+            />
+          );
+        })}
+      </ul>
+    </div>
   );
 }
 

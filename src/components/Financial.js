@@ -37,13 +37,8 @@ function Financial({ isOpenFC, currentAccount, message, dispatch }) {
       </div>
 
       <div className="financial_div">
-        <div
-          className={`transactions_div ${
-            activeTab === "banking" ? "" : "hidden"
-          } `}
-        >
-          <Transactions currentAccount={currentAccount} />
-        </div>
+        <Transactions currentAccount={currentAccount} activeTab={activeTab} />
+
         <Crypto
           activeTab={activeTab}
           currentAccount={currentAccount}

@@ -1,4 +1,5 @@
-import { useReducer, useEffect } from "react";
+import { useReducer, useEffect, useState } from "react";
+import { useLocalStorage } from "./useLocalStorage";
 import Header from "./Header";
 import Main from "./Main";
 import Hello from "./Hello";
@@ -7,15 +8,10 @@ import Financial from "./Financial";
 import CreateAccount from "./CreateAccount";
 import Footer from "./Footer";
 import Message from "./Message";
-import { useLocalStorage } from "./useLocalStorage";
-import { useState } from "react";
 
 // * TO DO LIST
-// ? first-up
-
-// ? general
-// ! option to fetch current crypto price
-//
+// ! to avoid usernames duplicates!!!
+// ? option to fetch current crypto price
 //
 
 function formatDateBasedOnCurrency(
@@ -291,12 +287,12 @@ function App() {
   // ? for syncing currentAccount with local storage (thru setAccounts)
   useEffect(() => {
     syncWithLocalStorage(currentAccount, setAccounts);
-  }, [currentAccount, setAccounts]);
+  }, [currentAccount, setAccounts, accounts]);
 
   // ? for syncing receiverAccount with local storage (thru setAccounts)
   useEffect(() => {
     syncWithLocalStorage(receiverAccount, setAccounts);
-  }, [receiverAccount, setAccounts]);
+  }, [receiverAccount, setAccounts, accounts]);
 
   return (
     <>

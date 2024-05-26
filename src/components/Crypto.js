@@ -55,7 +55,7 @@ async function getCryptoPrices() {
       usdc: usdcPrice,
     };
   } catch (err) {
-    console.error(err);
+    console.error("⛔⛔⛔", err.message);
   }
 }
 
@@ -67,8 +67,12 @@ function Crypto({ activeTab, currentAccount, dispatch, message }) {
 
   useEffect(() => {
     async function retrieveCryptoPrices() {
-      const prices = await getCryptoPrices();
-      setCryptoPrices(prices);
+      try {
+        const prices = await getCryptoPrices();
+        setCryptoPrices(prices);
+      } catch (err) {
+        console.error("⛔⛔⛔", err.message);
+      }
     }
     retrieveCryptoPrices();
   }, []);
